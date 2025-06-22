@@ -511,6 +511,7 @@ button.next {
     }
 
     .logo {
+        display: none;
         width: 35px;
         top: 10px;
         left: 10px;
