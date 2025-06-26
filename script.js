@@ -1,10 +1,10 @@
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".navbar-links ul");
+// const hamburger = document.querySelector(".hamburger");
+// const navLinks = document.querySelector(".navbar-links ul");
 
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.classList.toggle("active");
-});
+// hamburger.addEventListener("click", () => {
+//     navLinks.classList.toggle("active");
+//     hamburger.classList.toggle("active");
+// });
 
 // This is for the darkmode stuff
 
@@ -26,24 +26,42 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Carousel
 
-const images = document.querySelectorAll('.carousel-images img');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
+// const images = document.querySelectorAll('.carousel-images img');
+// const prevBtn = document.querySelector('.prev');
+// const nextBtn = document.querySelector('.next');
 
-let current = 0;
+// let current = 0;
 
-function showImage(index) {
-  images.forEach((img, i) => {
-    img.classList.toggle('active', i === index);
+// function showImage(index) {
+//   images.forEach((img, i) => {
+//     img.classList.toggle('active', i === index);
+//   });
+// }
+
+// prevBtn.addEventListener('click', () => {
+//   current = (current - 1 + images.length) % images.length;
+//   showImage(current);
+// });
+
+// nextBtn.addEventListener('click', () => {
+//   current = (current + 1) % images.length;
+//   showImage(current);
+// });
+
+// Side Tab
+
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger");
+  const navbarLinks = document.querySelector(".navbar-links");
+  const overlay = document.querySelector(".overlay-blur");
+
+  hamburger.addEventListener("click", () => {
+    navbarLinks.classList.toggle("active");
+    overlay.classList.toggle("active");
   });
-}
 
-prevBtn.addEventListener('click', () => {
-  current = (current - 1 + images.length) % images.length;
-  showImage(current);
-});
-
-nextBtn.addEventListener('click', () => {
-  current = (current + 1) % images.length;
-  showImage(current);
+  overlay.addEventListener("click", () => {
+    navbarLinks.classList.remove("active");
+    overlay.classList.remove("active");
+  });
 });
